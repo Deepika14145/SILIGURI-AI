@@ -1,0 +1,7 @@
+{
+  "name": "Siliguri Corridor Threat Intel",
+  "description": "AI-Powered Threat Intelligence & Prediction System for the Siliguri Corridor. utilizing real-time weather data, simulated mobility patterns, and GenAI for strategic analysis.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

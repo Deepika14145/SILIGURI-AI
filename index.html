@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Siliguri Defense Command | Govt of India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'army': {
+                50: '#f5f7f2',
+                100: '#e6ebe0',
+                200: '#ccd6c2',
+                300: '#a3b596',
+                400: '#7a9168',
+                500: '#5a7048', // Olive Drab
+                600: '#465937',
+                700: '#39472d',
+                800: '#303b27',
+                900: '#283122',
+                950: '#141a10',
+              },
+              'gov': {
+                blue: '#000080', // Chakra Blue
+                gold: '#D4AF37', // Emblem Gold
+                orange: '#FF9933', // Saffron
+                green: '#138808', // India Green
+              },
+              'threat-low': '#15803d',
+              'threat-med': '#b45309',
+              'threat-high': '#b91c1c',
+            },
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            borderRadius: {
+              'none': '0',
+              'sm': '2px',
+              'DEFAULT': '4px',
+              'md': '6px',
+              'lg': '8px',
+              'xl': '12px',
+            },
+            boxShadow: {
+              'sharp': '2px 2px 0px 0px rgba(0,0,0,0.2)',
+              'sharp-lg': '4px 4px 0px 0px rgba(0,0,0,0.3)',
+            },
+            animation: {
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in-down': 'fadeInDown 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+            },
+            keyframes: {
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      /* Military Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #283122; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #5a7048; 
+        border: 1px solid #283122;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7a9168; 
+      }
+      
+      .leaflet-container {
+        font-family: 'Roboto', sans-serif;
+      }
+      
+      /* Popup Styling */
+      .leaflet-popup-content-wrapper {
+        border-radius: 2px !important;
+        padding: 0 !important;
+        overflow: hidden;
+      }
+      .leaflet-popup-content {
+        margin: 0 !important;
+      }
+      .leaflet-container a.leaflet-popup-close-button {
+        color: #fff;
+        padding: 4px;
+        font-size: 16px;
+      }
+
+      /* Critical Threat Pulsing */
+      .critical-zone-pulse {
+        animation: pulse-red 1.5s infinite;
+      }
+      @keyframes pulse-red {
+        0% { fill-opacity: 0.4; stroke-width: 1; }
+        50% { fill-opacity: 0.7; stroke-width: 2; }
+        100% { fill-opacity: 0.4; stroke-width: 1; }
+      }
+      
+      /* Grid Pattern Overlay */
+      .bg-grid-pattern {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-leaflet": "https://aistudiocdn.com/react-leaflet@^5.0.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "leaflet": "https://aistudiocdn.com/leaflet@^1.9.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-army-50 dark:bg-army-950 text-gray-900 dark:text-gray-100 antialiased overflow-hidden selection:bg-army-500 selection:text-white transition-colors duration-300">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
